@@ -44,9 +44,25 @@ class Bacteria(GameObject):
   def draw(self):
     super().draw()
 
+class Egg(GameObject):
+  def __init__(self):
+    super().__init__()
+    self.isHatched = False
+  
+  def setPositionXY(self, x, y):
+    super().setPositionXY(x, y)
+
+  def addSprite(self, image_path):
+    super().addSprite(image_path)
+
+  def draw(self):
+    super().draw()
 
 player = Bacteria()
 player.addSprite('player.png')
+
+egg = Egg()
+egg.addSprite('eggs.png')
 
 run = True
 # main loop
@@ -55,6 +71,7 @@ while run:
 
   # Refresh display
   win.fill((0,0,0))
+  egg.draw()
   player.draw()
   pygame.display.update()
 
