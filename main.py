@@ -18,6 +18,7 @@ class GameObject:
     self.position = Position()
     self.sprite = []
     self.frameCount = 0
+    self.speed = 3
 
   def setPositionXY(self, x, y):
     self.position.x = x
@@ -29,6 +30,16 @@ class GameObject:
   def draw(self):
     if self.frameCount == 0 and self.sprite.__len__() == 1:
       win.blit(self.sprite[0], (self.position.x, self.position.y))
+
+  def move(self, direction):
+    if (direction == 'UP'):
+      self.position.y -= self.speed
+    elif (direction == 'DOWN'):
+      self.position.y += self.speed
+    elif (direction == 'LEFT'):
+      self.position.x -= self.speed
+    elif (direction == 'RIGHT'):
+      self.position.x += self.speed
 
 
 class Bacteria(GameObject):
@@ -69,6 +80,8 @@ run = True
 while run:
   pygame.time.delay(60)
 
+  player.move('DOWN')
+  
   # Refresh display
   win.fill((0,0,0))
   egg.draw()
