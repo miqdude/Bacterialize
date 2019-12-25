@@ -46,28 +46,10 @@ class Bacteria(GameObject):
   def __init__(self):
     super().__init__()
 
-  def setPositionXY(self, x, y):
-    super().setPositionXY(x, y)
-
-  def addSprite(self, image_path):
-    super().addSprite(image_path)
-
-  def draw(self):
-    super().draw()
-
 class Egg(GameObject):
   def __init__(self):
     super().__init__()
     self.isHatched = False
-  
-  def setPositionXY(self, x, y):
-    super().setPositionXY(x, y)
-
-  def addSprite(self, image_path):
-    super().addSprite(image_path)
-
-  def draw(self):
-    super().draw()
 
 player = Bacteria()
 player.addSprite('player.png')
@@ -81,7 +63,7 @@ while run:
   pygame.time.delay(60)
 
   player.move('DOWN')
-  
+
   # Refresh display
   win.fill((0,0,0))
   egg.draw()
